@@ -2,22 +2,32 @@
 #define PROCESS_H
 
 #include <string>
+
+using std::string;
+
 /*
 Basic class for Process representation
 It contains relevant attributes as shown below
 */
 class Process {
  public:
-  int Pid();                               // TODO: See src/process.cpp
-  std::string User();                      // TODO: See src/process.cpp
-  std::string Command();                   // TODO: See src/process.cpp
-  float CpuUtilization();                  // TODO: See src/process.cpp
-  std::string Ram();                       // TODO: See src/process.cpp
-  long int UpTime();                       // TODO: See src/process.cpp
-  bool operator<(Process const& a) const;  // TODO: See src/process.cpp
+  Process(int pid, string user, string cmdline, float cpu, string ram, long int uptime) :
+  pid_(pid), user_(user), cmdline_(cmdline), cpu_(cpu), ram_(ram), uptime_(uptime) {}
+  int Pid();                               
+  string User();                     
+  string Command();                  
+  float CpuUtilization();                  
+  string Ram();                       
+  long int UpTime();                       
+  bool operator<(Process const& a) const;
 
-  // TODO: Declare any necessary private members
  private:
+  int pid_;
+  string user_;
+  string cmdline_;
+  float cpu_;
+  string ram_;
+  long int uptime_;
 };
 
 #endif
